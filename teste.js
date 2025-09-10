@@ -1,5 +1,8 @@
-let notas = [100,85,90, 5];
-
-for(var i = 0; i < notas.length; i++){
-    console.log(notas);
+function somaVariaveis(){
+    var a = 10;
+    var b = 30;
+    var soma = a + b;
+    console.log(soma);
 }
+
+somaVariaveis();
