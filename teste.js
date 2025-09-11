@@ -1,8 +1,7 @@
-function somaVariaveis(){
-    var a = 10;
-    var b = 30;
-    var soma = a + b;
-    console.log(soma);
-}
-
-somaVariaveis();
+variaveis,
+loop for,
+condicionais com if, 
+operações matematicas, 
+console.log
+criação de listas,
+funções
