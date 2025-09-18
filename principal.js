@@ -60,8 +60,21 @@ var botaoAdicionar = document.querySelector("#adicionar-paciente");
 
     botaoAdicionar.addEventListener('click', 
     function(event){
-    event.preventDefault();
-    console.log("Paciente adicionado")
+        event.preventDefault();
+
+        var formulario = document.querySelector('#form-adiciona');
+
+        var nome = formulario.nome.value;
+        var peso = formulario.peso.value;
+        var altura = formulario.altura.value;
+        var gordura = formulario.gordura.value;
+
+        console.log(formulario.altura.value);
+        console.log(nome);
+        console.log(peso);
+        console.log(altura);
+        console.log(gordura);
+    
     }
 
 );
