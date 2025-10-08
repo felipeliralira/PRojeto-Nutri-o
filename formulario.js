@@ -9,9 +9,14 @@ var botaoAdicionar = document.querySelector("#adicionar-paciente");
 
         // Variáveis para acessar o valor do <input> a partir do nome
         var paciente = dadosPacientesFormulario(formulario);
+        var pacienteTr = criaTr(paciente); //Cria o elemento <tr>
 
-        //Cria o elemento <tr>
-        var pacienteTr = criaTr(paciente);
+        if(!validarPaciente(paciente)){
+            console.log("Paciente Inválido")
+            return;
+        }
+        
+        
 
         var tabela = document.querySelector("#tabela-pacientes");
         tabela.appendChild(pacienteTr);
@@ -51,5 +56,13 @@ function criaTd(dado, classes){
     td.classList.add(classes);
 
     return td;
+}
+
+function validarPaciente(paciente){
+    if(validarPeso(paciente.peso)){
+        return true;
+    }else{
+        return false;
+    }
 }
 
