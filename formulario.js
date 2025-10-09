@@ -11,13 +11,13 @@ var botaoAdicionar = document.querySelector("#adicionar-paciente");
         var paciente = dadosPacientesFormulario(formulario);
         var pacienteTr = criaTr(paciente); //Cria o elemento <tr>
 
-        var erro = validarPaciente(paciente);
+        var erros = validarPaciente(paciente);
 
         //Impede de adicionar o paciente
-        if(erro.length > 0){
+        if(erros.length > 0){
 
             var mensagemErro = document.querySelector("#mensagem-erro");
-            mensagemErro.textContent = erro;
+            mensagemErro.textContent = erros;
             console.log("Paciente Inválido");
             return;
         }
@@ -65,10 +65,16 @@ function criaTd(dado, classes){
 }
 
 function validarPaciente(paciente){
-    if(validarPeso(paciente.peso)){
-        return "";
-    }else{
-        return "O peso é inválido!";
+
+    var erros = [];
+
+    if(!validarPeso(paciente.peso)){
+        erros.push("O peso é inválido!");
     }
+
+    if(!validarAltura(paciente.altura)){
+        erros.push("A altura é inválida!");
+    }
+    return erros;
 }
 
