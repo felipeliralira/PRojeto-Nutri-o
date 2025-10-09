@@ -11,8 +11,14 @@ var botaoAdicionar = document.querySelector("#adicionar-paciente");
         var paciente = dadosPacientesFormulario(formulario);
         var pacienteTr = criaTr(paciente); //Cria o elemento <tr>
 
-        if(!validarPaciente(paciente)){
-            console.log("Paciente Inválido")
+        var erro = validarPaciente(paciente);
+
+        //Impede de adicionar o paciente
+        if(erro.length > 0){
+
+            var mensagemErro = document.querySelector("#mensagem-erro");
+            mensagemErro.textContent = erro;
+            console.log("Paciente Inválido");
             return;
         }
         
@@ -60,9 +66,9 @@ function criaTd(dado, classes){
 
 function validarPaciente(paciente){
     if(validarPeso(paciente.peso)){
-        return true;
+        return "";
     }else{
-        return false;
+        return "O peso é inválido!";
     }
 }
 
